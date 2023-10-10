@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MustafinaWeb.Models.Note>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Заметки</h2>
+
+<p>   
+    <a href="@Url.Action("Create", new {})" class="btn btn-dark" role="button">Создать новую заметку</a>
+</p>
+<br />
+@foreach (var item in Model)
+{
+    <div class="card border-dark mb-3">
+        <div class="card-header">
+            <h4 class="card-title">
+                @Html.DisplayFor(modelItem => item.Title)
+            </h4>
+        </div>
+        <div class="card-body">
+            <p>
+                <div style="margin: 20px 20px 20px 20px;">
+                    <br />
+                    @Html.DisplayFor(modelItem => item.Text)
+                </div>
+            </p>            
+            <p class="card-text" style="margin: 20px;">
+                <a href="@Url.Action("Edit", new { id = item.NoteId })" class="btn btn-dark" role="button">Редактировать</a>
+                <a href="@Url.Action("Details", new { id = item.NoteId })" class="btn btn-dark" role="button">Детали</a>
+                <a href="@Url.Action("Delete", new { id = item.NoteId })" class="btn btn-dark" role="button">Удалить</a>
+            </p>
+        </div>
+    </div>
+}

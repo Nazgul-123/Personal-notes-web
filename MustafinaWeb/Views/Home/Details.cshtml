@@ -1,0 +1,33 @@
+﻿@model MustafinaWeb.Models.Note
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="card border-light mb-3">
+    <div class="card-header">
+        <h1>
+            Название: "@Html.DisplayFor(model => model.Title)"
+        </h1>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title"></h4>                  
+        <p class="card-text" style="margin: 20px 20px 20px 20px;">
+            <h4 style="margin: 20px 20px 20px 20px;">                       
+                @Html.DisplayFor(model => model.Text)
+                        <br />
+                        <br />
+                    </h4>
+            <h5>
+                @Html.DisplayNameFor(model => model.Date):  @Html.DisplayFor(model => model.Date)
+            </h5>
+        </p>
+    </div>
+</div>
+
+<p>
+    <h2>
+        <a href="@Url.Action("Edit", new { id = Model.NoteId })" class="btn btn-dark" role="button">Редактировать</a>
+        <a href="@Url.Action("Index")" class="btn btn-dark">Вернуться к списку заметок</a>
+    </h2>
+</p>

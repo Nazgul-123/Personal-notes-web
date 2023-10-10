@@ -1,0 +1,49 @@
+﻿@model MustafinaWeb.Models.Note
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Удаление заметки</h2>
+
+<h3>Действительно ли вы хотите удалить заметку?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Text)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Text)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd> 
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-dark" />             
+            <div>
+                <br />
+                <a href="@Url.Action("Index")" class="btn btn-dark">Вернуться к списку заметок</a>
+            </div>
+        </div>
+    }
+</div>
